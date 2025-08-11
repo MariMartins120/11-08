@@ -1,3 +1,5 @@
-FROM php:8.2-apache: Define a imagem base para a aplicação. Nesse caso, estamos usando uma imagem oficial do PHP com o Apache integrado. Isso fornece o ambiente necessário para rodar uma aplicação PHP com o servidor Apache.
-RUN Docker-php-ext-install pdo pdo-mysql: Instala as extensões PHP necessárias. Por exemplo, pdo e pdo_mysql são comuns para se conectar ao banco de dados MySQL.
-COPY . /src/var/www/html/
+FROM php:8.0-apache
+
+RUN a2enmod rewrire
+
+COPY . var/www/html/
